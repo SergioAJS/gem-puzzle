@@ -1,0 +1,275 @@
+.body {
+    font-family: 'Arial-MT', serif;
+    color: rgb(83, 81, 81);
+    font-size: 1.5em;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+}
+
+.body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background-color: blueviolet;
+    background-image: url(./assets/img/Cibeles-fountain-in-Madrid-Spain-Image.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.55;
+    z-index: -1;
+}
+
+.title {
+    color: rgb(134, 82, 19);
+    padding: 5px;
+    margin: 5px 20px 0px 20px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    font-size: 0.75em;
+    gap: 10px;
+    margin: auto;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: bisque;
+    padding: 5px;
+    color: rgb(83, 81, 81);
+}
+
+.button:hover {
+    background-color: rgb(127, 127, 236);
+    border: none;
+}
+
+.button:active {
+    scale: 1.1;
+}
+
+.soundOn {
+    background-image: url(./assets/img/volume_up_FILL0_wght400_GRAD0_opsz48.svg);
+    width: 35px;
+    height: 35px;
+    background-size: contain;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.soundOff {
+    background-image: url(./assets/img/volume_off_FILL0_wght400_GRAD0_opsz48.svg);
+    width: 35px;
+    height: 35px;
+    background-size: contain;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.countersContainer {
+    display: flex;
+    gap: 20px;
+}
+
+.movesContainer {
+    display: flex;
+    gap: 5px;
+}
+
+.timeContainer {
+    display: flex;
+    gap: 5px;
+}
+
+.movesCount {
+    width: 60px;
+    text-align: center;
+}
+
+.timeCount {
+    width: 60px;
+    text-align: center;
+}
+
+.gameField {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 37%;
+    border: 4px solid goldenrod;
+    padding: 0.5%;
+    padding-bottom: 36.5%;
+    min-width: 310px;
+    min-height: 310px;
+}
+
+.square {
+    position: absolute;
+    display: none;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid gray;
+    font-size: 1.5em;
+    color: black;
+    margin: 0;
+    padding: 0;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.5s;
+}
+
+.square::before {
+    background-color: rgb(233, 168, 224);
+    opacity: 0.45;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hide {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.hide::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+    background-image: url(./assets/img/pngwing.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10;
+    background-size: contain;
+}
+
+.winMessage {
+    font-family: 'LuckiestGuy-Reg', serif;
+    letter-spacing: 3px;
+    margin: auto;
+    text-align: center;
+    margin: 15px;
+    margin-top: 140px;
+    color: #c23e3e;
+}
+
+.saveMessage {
+    transform: translateY(-100%);
+    transition: all 0.3s;
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    padding-top: 40vh;
+    width: 100%;
+    height: 100%;
+    content: '';
+    align-items: center;
+    color: black;
+    z-index: 10;
+}
+
+.results {
+    display: none;
+}
+
+.hideResults {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.779);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2vh;
+    background: rgba(114, 109, 120, 0.5);
+    z-index: 5;
+}
+
+.resultsContainer {
+    width: 300px;
+    background: rgba(138, 43, 226, 0.9) ;
+    border-radius: 10px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.779);
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.gameResult {
+    margin-bottom: 10px;
+    font-size: 0.8em;
+}
+
+.show {
+    transform: translateY(0);
+}
+
+@media (max-width: 446px) and (min-width: 319px) {
+
+    .title {
+        margin: auto;
+        font-size: 1.5em;
+    }
+
+    .buttonsContainer {
+        gap: 5px;
+    }
+
+    .button {
+        font-size: 0.75em;
+    }
+
+    .soundOn, .soundOff {
+        width: 25px;
+        height: 25px;
+    }
+
+    .countersContainer {
+        font-size: 0.75em;
+    }
+
+    .winMessage {
+        font-size: 1em;
+    }
+
+    .resultsContainer {
+        width: 280px;
+        font-size: 0.75em;
+    }
+}
